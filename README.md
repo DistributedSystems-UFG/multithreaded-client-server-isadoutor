@@ -1,1 +1,21 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/yQPZ0SBC)
+# Calculadora Remota — Cliente/Servidor com Sockets
+
+Servidor que recebe operações matemáticas de clientes e retorna o resultado.
+
+Como usar
+
+1. Inicie o servidor: python server.py
+2. Em outro terminal, inicie o cliente: python client.py
+3. Digite a operação no cliente: <operacao> <num1> <num2>
+4. Digite 'quit' para encerrar a aplicação
+
+Operações disponíveis
+
+- add
+- sub
+- mult
+- div
+- pow
+
+Exemplo: 
+add 3 5 -> 8.0
