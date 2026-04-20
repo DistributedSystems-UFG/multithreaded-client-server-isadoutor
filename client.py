@@ -1,12 +1,28 @@
-from socket import *
-from constCS import *
+import socket
+import random
+import time
+from constCS import HOST, PORT
 
-s = socket(AF_INET, SOCK_STREAM)
+ops = ["add", "sub", "mul", "div"]
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
-while True:
-    request = input("> ")
-    if request == "quit": break
-    s.send(str.encode(request))
+
+start = time.time()
+
+for _ in range(10000):
+    op = random.choice(ops)
+    a = random.randint(1, 100)
+    b = random.randint(1, 100)
+
+    msg = f"{op} {a} {b}"
+    s.send(msg.encode())
+
     data = s.recv(1024)
-    print(bytes.decode(data))
+    print(msg, "=", data.decode())
+
+end = time.time()
+
+print("Tempo total:", end - start)
+
 s.close()
